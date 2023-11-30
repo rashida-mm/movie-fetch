@@ -28,12 +28,17 @@
 </body>
 <script>
 function search() {
-    var name = document.getElementById("mname").value; // Get user input
+    var mname = document.getElementById("mname").value
+  console.log( mname);
 
-    fetch(`http://www.omdbapi.com/?apikey=8c8766b7&t=${name}`)
+       if( mname==""){
+           alert("Please enter the field !")
+       }else{
+           fetch(`https://www.omdbapi.com/?apikey=8c8766b7&t=${mname}`) 
         .then((response) => response.json())
         .then((data) => displayData(data)) // Pass data to the displayData function
         .catch((error) => { console.log(error) });
+}
 }
 
 function displayData(data) {
