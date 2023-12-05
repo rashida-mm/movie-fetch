@@ -14,19 +14,18 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </head>
-<body style="background-image: url('https://dg3fwljcbubde.cloudfront.net/Landing/landing-bg-ww.jpg');">
-   <div class="bg-opacity-50 bg-dark" style="max-height: max-content;min-height: 641px;">
+<body style="background-image: url('https://dg3fwljcbubde.cloudfront.net/Landing/landing-bg-ww.jpg');overflow-y: hidden;">
+   <div class="bg-opacity-50 bg-dark" style="max-height: max-content;min-height:1000px;">
     <div class="row w-100">
-        <div class="col-4"></div>
-        <div style="width: 900px;margin-left: 20%;" class="col-4 bg-opacity-50 text-white shadow p-4 mt-5 rounded">
+        <div class="col-3"></div>
+        <div class="col-4 w-50 ms-1 text-white shadow p-4 mt-5 rounded">
             <h1 class="text-center mb-3" style="font-family: 'Satisfy';font-size:50px;text-shadow: 4px 6px 5px rgba(255, 0, 0, 0.993);">Film Hunt</h1>
-            <input style="width: 500px;margin-left: 20%;" type="text" class="form-control" placeholder="Enter movie name" id="mname">   
+            <input type="text" class="form-control" placeholder="Enter movie name" id="mname">   
             <button class="btn btn-danger my-4 d-block mx-auto w-50" onclick="search()">Search</button>
             <div id="result" class="mb-4 mt-3 justify-content-center fs-4">
             </div>
         </div>
-       
-        <div class="col-4"></div>
+        <div class="col-3"></div>
         </div>
    </div>
 </body>
@@ -50,13 +49,12 @@ function displayData(data) {
     document.getElementById("result").innerHTML =
         `<ul type="none">  
         <h3 class="card-title"><b>${data.Title} (${data.Year})</b></h3> <br>
-        <li><img style="height: 350px;margin-left: 35%;" src="${data.Poster}" alt="${data.Title}"</li><br><br>      
+        <li><img style="height: 350px;" src="${data.Poster}" alt="${data.Title}"</li><br><br>      
         <li><b>Plot</b> : ${data.Plot}</li><br>
         <li><b>Genre</b> : ${data.Genre}</li><br>
             <li><b>Director</b> : ${data.Director}</li><br>
             <li><b>Actors</b> : ${data.Actors}</li><br>
             <li><b>Rating</b> : ${data.Ratings[0].Source} ${data.Ratings[0].Value}</li>
-
         `
 }
 
