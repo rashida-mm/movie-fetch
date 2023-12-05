@@ -4,27 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Fetching</title>
+    <title>Film Hunt</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Black+Ops+One&family=Caveat&family=Courgette&family=Croissant+One&family=Dancing+Script:wght@500;700&family=Handlee&family=Kaisei+HarunoUmi:wght@500&family=Kalam:wght@300&family=Lobster&family=Montserrat:wght@300&family=Mulish:wght@300;500&family=Pacifico&family=Playfair+Display:ital,wght@0,500;1,700&family=Roboto:wght@100;400&family=Satisfy&family=Yanone+Kaffeesatz&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </head>
-<body class="bg-light">
+<body style="background-image: url('https://dg3fwljcbubde.cloudfront.net/Landing/landing-bg-ww.jpg');">
+   <div class="bg-opacity-50 bg-dark" style="max-height: max-content;min-height: 641px;">
     <div class="row w-100">
         <div class="col-4"></div>
-        <div class="col-4 bg-white shadow p-4  mt-5 ms-5 rounded">
-            <h3 class="text-center text-success mb-3">Movie Search App</h3>
-            <input type="text" class="form-control" placeholder="Enter movie name" id="mname">   
-            <button class="btn btn-success my-3 d-block mx-auto w-100" onclick="search()">Search</button>
-            <div id="result" class="mt-4 justify-content-center">
+        <div style="width: 900px;margin-left: 20%;" class="col-4 bg-opacity-50 text-white shadow p-4 mt-5 rounded">
+            <h1 class="text-center mb-3" style="font-family: 'Satisfy';font-size:50px;text-shadow: 4px 6px 5px rgba(255, 0, 0, 0.993);">Film Hunt</h1>
+            <input style="width: 500px;margin-left: 20%;" type="text" class="form-control" placeholder="Enter movie name" id="mname">   
+            <button class="btn btn-danger my-4 d-block mx-auto w-50" onclick="search()">Search</button>
+            <div id="result" class="mb-4 mt-3 justify-content-center fs-4">
             </div>
         </div>
        
         <div class="col-4"></div>
         </div>
-       
+   </div>
 </body>
 <script>
 function search() {
@@ -45,8 +49,10 @@ function displayData(data) {
     console.log(data);
     document.getElementById("result").innerHTML =
         `<ul type="none">  
-        <h5 class="card-title"><b>${data.Title} (${data.Year})</b></h5> <br>
-            <li><b>Plot</b> : ${data.Plot}</li><br>
+        <h3 class="card-title"><b>${data.Title} (${data.Year})</b></h3> <br>
+        <li><img style="height: 350px;margin-left: 35%;" src="${data.Poster}" alt="${data.Title}"</li><br><br>      
+        <li><b>Plot</b> : ${data.Plot}</li><br>
+        <li><b>Genre</b> : ${data.Genre}</li><br>
             <li><b>Director</b> : ${data.Director}</li><br>
             <li><b>Actors</b> : ${data.Actors}</li><br>
             <li><b>Rating</b> : ${data.Ratings[0].Source} ${data.Ratings[0].Value}</li>
